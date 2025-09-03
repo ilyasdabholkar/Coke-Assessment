@@ -1,0 +1,24 @@
+ <div class="container">
+      <h2 class="title">Employee Management</h2>
+
+      <div class="controls">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="🔍 Search employees" class="search-box"/>
+
+        <select [(ngModel)]="sortBy" class="sort-dropdown">
+          <option value="id">Sort by Id</option>
+          <option value="name">Sort by Name</option>
+        </select>
+      </div>
+
+      <ul class="employee-list">
+        <li *ngFor="let e of filteredEmployees()" class="employee-item">
+          <span>{{ e.id }} - {{ e.name }}</span>
+          <button class="delete-btn" (click)="delete(e.id)">❌ Delete</button>
+        </li>
+      </ul>
+
+      <div class="add-section">
+        <input [(ngModel)]="newName" placeholder="New employee name" class="input-box"/>
+        <button class="add-btn" (click)="add()">➕ Add</button>
+      </div>
+    </div>
